@@ -22,8 +22,18 @@ $js = [IO.File]::ReadAllText($jsPath).Replace('Link copied. This prototype is pr
 @{ globalHeaders = @{ 'X-Content-Type-Options' = 'nosniff'; 'Referrer-Policy' = 'strict-origin-when-cross-origin' } } | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $output 'staticwebapp.config.json') -Encoding utf8
 
 # Explicit subscription arguments avoid changing the user's default Azure account.
-az group create --subscription $SubscriptionId --name $ResourceGroup --location $Location --output none
+$providerState = az provider show --subscription $SubscriptionId --namespace Microsoft.Web --query registrationState --output tsv
 Assert-AzureSuccess
+if (($providerState -join '').Trim() -ne 'Registered') {
+    az provider register --subscription $SubscriptionId --namespace Microsoft.Web --wait --output none
+    Assert-AzureSuccess
+}
+$groupExists = az group exists --subscription $SubscriptionId --name $ResourceGroup --output tsv
+Assert-AzureSuccess
+if (($groupExists -join '').Trim() -ne 'true') {
+    az group create --subscription $SubscriptionId --name $ResourceGroup --location $Location --output none
+    Assert-AzureSuccess
+}
 az staticwebapp create --subscription $SubscriptionId --resource-group $ResourceGroup --name $AppName --location $Location --sku Free --output none
 Assert-AzureSuccess
 

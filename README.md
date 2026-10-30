@@ -2,7 +2,7 @@
 
 Campaign proof of concept about changes to Business Asset Disposal Relief, initiated by Phil after 28 years building a business.
 
-Live Azure POC: https://white-plant-043aaf503.4.azurestaticapps.net/
+The POC runs on Azure Static Web Apps. Deployment-specific subscription identifiers and the personal hosting endpoint are kept out of this public README.
 
 ## Site
 
@@ -26,16 +26,19 @@ The POC is deployed to Azure Static Web Apps on the Free plan:
 
 - Resource group: `rg-fair-exit`
 - Static Web App: `swa-fair-exit`
-- Region: `westeurope`
+- Subscription: select the intended subscription explicitly when deploying
+- Region: choose a Static Web Apps region available to that subscription
 - Custom domain: not configured
 
 Prerequisites: Azure CLI signed in to the intended subscription, Node.js/npm, and permission to manage the resource group and Static Web App.
 
 ```powershell
-.\scripts\Deploy-FairExit.ps1 -SubscriptionId '<your-subscription-id>'
+.\scripts\Deploy-FairExit.ps1 -SubscriptionId '<your-subscription-id>' -Location '<supported-region>'
 ```
 
-The script creates or updates the Free hosting resource, stages `dist/` into ignored `.azure-output/`, and publishes using Microsoft's Static Web Apps CLI. It keeps the deployment token in the process environment and restores any previous value afterwards. Tokens are not written to source or passed as command arguments. Existing custom domains and access settings are not configured by this script.
+The script registers the Microsoft.Web provider when required, reuses an existing resource group or creates one, creates or updates the Free hosting resource, stages `dist/` into ignored `.azure-output/`, and publishes using Microsoft's Static Web Apps CLI. It keeps the deployment token in the process environment and restores any previous value afterwards. Tokens are not written to source or passed as command arguments. Existing custom domains and access settings are not configured by this script.
+
+Existing deployments are retained when deploying to another subscription. Custom domains must be configured separately on the selected app.
 
 Deployments are manual. Pushing this repository does not automatically deploy to Azure.
 
