@@ -57,3 +57,8 @@ The default is “Enough is enough”. Add `?direction=finish-line` for “Stop 
 ## Verification
 
 Check the rendered desktop and phone layouts, primary action links, MP and consultation dialogs, copy/download controls, and the calculator around £500,000 and £1 million. Keep the illustrative assumptions visible alongside the figures. No fake supporters or endorsements are displayed.
+
+
+## ONS turnover comparison
+
+The founders-relief section uses the 2026 ONS UK business workbook, Table 15, UK row 6, Company (including Building Society) category. B6:I6 sum to 2,113,885 enterprises below £10m; J6:K6 sum to 41,515 at least £10m; L6 totals 2,155,400. The calculated below-threshold share is 98.073907%, displayed as 98.1%. Scope and methodological qualifications are beside the statistic on the page. This is not a count of Companies House registrations or a forecast of future relief eligibility.
