@@ -95,8 +95,8 @@ document.querySelector('#share-button').addEventListener('click',async()=>{
 // Alternate openings for creative review; the public default is the Enough is enough direction.
 const direction=new URLSearchParams(location.search).get('direction');
 const alternatives={
- 'finish-line':{heading:'STOP MOVING<br>THE <span class="headline-accent">FINISH LINE.</span>',kicker:'28 years building a business.<br>A lifetime’s work deserves a fair exit.',explainer:'You take the risks and plan for the long term. Then the rules change: BADR rose from <strong>10% to 18%</strong>. Now the government plans to <strong>halve its lifetime limit</strong>. Help us challenge the changes.'},
- 'small-business':{heading:'SMALL BUSINESS.<br><span class="headline-accent">BIG BETRAYAL.</span>',kicker:'You put years in.<br>Don’t let your voice be left out.',explainer:'Business owners deserve to be heard. The BADR rate has risen from <strong>10% to 18%</strong>, and the government now plans to <strong>cut the lifetime limit by 50%</strong>. We say enough is enough.'}
+ 'finish-line':{heading:'STOP MOVING<br>THE <span class="headline-accent">FINISH LINE.</span>',kicker:'28 years building a business.<br>A lifetime’s work deserves a fair exit.',explainer:'You take the risks and plan for the long term. Then the rules change: the tax rate under BADR (formerly Entrepreneurs’ Relief; preceded by business asset taper relief) rose from <strong>10% to 18%</strong>. Now the government plans to <strong>halve its lifetime limit</strong>. Help us challenge the changes.'},
+ 'small-business':{heading:'SMALL BUSINESS.<br><span class="headline-accent">BIG BETRAYAL.</span>',kicker:'You put years in.<br>Don’t let your voice be left out.',explainer:'Business owners deserve to be heard. The tax rate under BADR (formerly Entrepreneurs’ Relief; preceded by business asset taper relief) has risen from <strong>10% to 18%</strong>, and the government now plans to <strong>cut the lifetime limit by 50%</strong>. We say enough is enough.'}
 };
 if(alternatives[direction]){
  document.documentElement.dataset.direction=direction;
