@@ -17,3 +17,5 @@ html[data-direction] h1{font-size:clamp(52px,5.9vw,83px)}@media(max-width:760px)
 .eyebrow.section-label{font-family:var(--display);font-size:clamp(23px,2.1vw,30px);font-weight:400;letter-spacing:.35px;line-height:1.25;text-wrap:balance}.section-top{align-items:flex-start}.section-top .mono{padding-top:7px}@media(max-width:760px){.eyebrow.section-label{font-size:23px;letter-spacing:.15px;line-height:1.3}}
 
 .rate-dates{margin-top:20px;padding-top:13px}.rate-dates p{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:11px;line-height:1.5}.rate-dates p+p{margin-top:7px}.rate-dates strong{font-weight:700}.rate-dates p>span{font-weight:700;white-space:nowrap}@media(max-width:760px){.rate-dates{grid-column:1 / -1}.rate-dates p{font-size:12px}}
+
+.cost-heading>p .erosion-line{display:block;font-size:22px;font-weight:700;line-height:1.25;letter-spacing:-.5px;color:var(--paper);margin-bottom:13px}
