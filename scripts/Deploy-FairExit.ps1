@@ -12,7 +12,7 @@ $source = Join-Path $PSScriptRoot '..\dist'
 $output = Join-Path $PSScriptRoot '..\.azure-output'
 if (-not (Test-Path -LiteralPath (Join-Path $source 'index.html'))) { throw 'Campaign source not found.' }
 New-Item -ItemType Directory -Path $output -Force | Out-Null
-Copy-Item -LiteralPath (Join-Path $source 'index.html'), (Join-Path $source 'styles.css'), (Join-Path $source 'app.js') -Destination $output -Force
+Get-ChildItem -LiteralPath $source | Copy-Item -Destination $output -Recurse -Force
 $htmlPath = Join-Path $output 'index.html'
 $html = [IO.File]::ReadAllText($htmlPath).Replace('Private proof of concept', 'Proof of concept')
 [IO.File]::WriteAllText($htmlPath, $html)
