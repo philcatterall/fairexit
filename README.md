@@ -8,7 +8,7 @@ The POC runs on Azure Static Web Apps. Deployment-specific subscription identifi
 
 ## Site
 
-The buildless site lives in `dist/`. The campaign uses a poster-style visual identity, the “Enough is enough” opening, sourced tax comparisons, Phil’s story and the proposed Founders’ Relief thresholds. Visitors can personalise and copy or download an MP letter, prepare a Treasury consultation response and share the site. No messages are sent by the website.
+The buildless site lives in `dist/`. The campaign uses a navy, white and cobalt visual identity with a direct relief-limit comparison graphic, the “Enough is enough” opening, sourced tax comparisons, Phil’s story and the proposed Founders’ Relief thresholds. Visitors can personalise and copy or download an MP letter, prepare a Treasury consultation response and share the site. No messages are sent by the website.
 
 Supporter registration and a backend are deliberately deferred. The old demonstration signup form has been removed. No personal data, analytics or mailing list is collected by the site code. Fonts are self-hosted and their licences are included in `dist/fonts/`.
 
