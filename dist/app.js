@@ -72,10 +72,20 @@ document.querySelectorAll('dialog').forEach(dialog => {
  dialog.addEventListener('click',event=>{ if(event.target!==dialog)return;const box=dialog.getBoundingClientRect();if(event.clientX<box.left||event.clientX>box.right||event.clientY<box.top||event.clientY>box.bottom)dialog.close(); });
 });
 async function copyDraft(input,status) {
- try { await navigator.clipboard.writeText(input.value); status.textContent='Copied. Review your personal details and send it when you are ready. Nothing has been sent by this site.'; }
- catch { input.focus(); input.select(); status.textContent='Your browser could not copy automatically. The draft is selected: use your device’s Copy command.'; }
+ try { await navigator.clipboard.writeText(input.value); status.textContent='Copied. Review your personal details and send it when you are ready. Nothing has been sent by this site.'; return true; }
+ catch { input.focus(); input.select(); status.textContent='Your browser could not copy automatically. The draft is selected: use your device’s Copy command.'; return false; }
 }
-document.querySelector('#copy-letter').addEventListener('click',()=>copyDraft(mpText,document.querySelector('#letter-status')));
+document.querySelectorAll('[data-copy-letter]').forEach(button=>button.addEventListener('click',async()=>{
+ const copied=await copyDraft(mpText,document.querySelector('#letter-status'));
+ if(button.id==='copy-letter-top'){
+  button.querySelector('span').textContent=copied?'Copied':'Select & copy';
+  button.setAttribute('aria-label',copied?'Draft letter copied':'Draft selected; use your device’s Copy command');
+ }
+}));
+mpText.addEventListener('input',()=>{
+ const button=document.querySelector('#copy-letter-top');
+ button.querySelector('span').textContent='Copy';button.setAttribute('aria-label','Copy draft letter');
+});
 document.querySelector('#copy-consultation').addEventListener('click',()=>copyDraft(consultationText,document.querySelector('#consultation-status')));
 document.querySelector('#download-letter').addEventListener('click',()=>{
  const file = new Blob([mpText.value],{type:'text/plain;charset=utf-8'});

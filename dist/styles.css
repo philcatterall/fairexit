@@ -672,3 +672,8 @@ h1{font-size:21vw}
 .founders-inner h2{font-size:49px}
 .calc-extra strong{font-size:30px}
 }
+
+.letter-editor-heading{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.copy-draft-small{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:32px;padding:6px 11px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-size:11px;font-weight:700;line-height:1.3;white-space:nowrap}
+.copy-draft-small:hover{border-color:var(--blue);background:var(--sky);color:var(--blue)}
+.copy-draft-small svg{flex:none}
